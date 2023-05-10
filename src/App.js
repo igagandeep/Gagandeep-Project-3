@@ -1,10 +1,12 @@
-import "./App.css";
+// import "./normalize.css";
+import "./App.scss";
+import Header from "./components/header/Header";
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
 
