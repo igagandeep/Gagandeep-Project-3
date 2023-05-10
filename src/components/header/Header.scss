@@ -1,11 +1,11 @@
 nav {
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 9999;
   transition-timing-function: ease-in;
   transition: all 0.5s;
 }
-.nav_black {
+.nav-black {
   background-color: #000;
 }
 nav .wrapper {
@@ -20,4 +20,86 @@ nav .wrapper {
 .profile {
   width: 30px;
   cursor: pointer;
+}
+
+// Banner
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 600px;
+  object-fit: contain;
+  color: #fff;
+}
+.banner .wrapper {
+  flex-grow: 5;
+}
+.banner-contents {
+  height: 100%;
+  display: flex;
+  line-height: 1.7;
+  flex-direction: column;
+  justify-content: flex-end;
+  .banner-title {
+    font-size: 56px;
+  }
+  .banner-description {
+    width: 40%;
+  }
+}
+.banner-btn {
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 0.2vw;
+  padding: 12px 48px;
+  margin-right: 16px;
+  font-weight: 700;
+  background-color: rgba(51, 51, 51, 0.5);
+  &:hover {
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s;
+  }
+}
+.banner-fadeEffect {
+  flex-grow: 0;
+  height: 118.4px;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.61),
+    #111
+  );
+}
+
+@media (max-width: 992px) {
+  .banner-contents {
+    .banner-title {
+      font-size: 36px;
+    }
+    .banner-description {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-contents {
+    .banner-title {
+      font-size: 24px;
+    }
+    .banner-description {
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+  .banner-btn {
+    padding: 8px 32px;
+  }
 }

@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+}
+html {
+  background-color: #111;
+}
 ul {
   list-style-type: none;
   padding: 0;
@@ -17,5 +23,5 @@ img {
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
-  border: 1px solid black;
+  // border: 1px solid black;
 }

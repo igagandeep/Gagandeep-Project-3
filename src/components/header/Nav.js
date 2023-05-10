@@ -18,7 +18,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className={`${isNavBlack && "nav_black"}`}>
+    <nav className={`${isNavBlack && "nav-black"}`}>
       <div className="wrapper">
         <img
           className="logo"
