@@ -1,0 +1,32 @@
+.movies-container {
+  color: #fff;
+}
+
+.movies {
+  width: 1080px;
+  display: flex;
+  flex: none;
+  overflow: auto;
+}
+
+.movie {
+  height: 100%;
+  max-height: 250px;
+  border: 1px solid #fff;
+  transition: transform 450ms;
+  cursor: pointer;
+}
+.movie:hover {
+  transform: scale(1.08);
+  opacity: 1;
+}
+.movie img {
+  height: 100%;
+  max-height: 250px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.poster_large {
+  max-height: 350px;
+}/*# sourceMappingURL=Main.css.map */
