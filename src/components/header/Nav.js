@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
+import { BsBell } from "react-icons/bs";
 
 const Nav = () => {
   const [isNavBlack, setIsNavBlack] = useState(false);
@@ -28,11 +30,21 @@ const Nav = () => {
             alt="this is logo icon"
           />
         </Link>
-        <img
-          className="profile"
-          src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-          alt="this is profile icon"
-        />
+        <ul className="nav-right">
+          <li>
+            <SearchBar />
+          </li>
+          <li>
+            <BsBell className="bello" />
+          </li>
+          <li>
+            <img
+              className="profile"
+              src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+              alt="this is profile icon"
+            />
+          </li>
+        </ul>
       </div>
     </nav>
   );

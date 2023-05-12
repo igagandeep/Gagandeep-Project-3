@@ -7,7 +7,7 @@ const similarMoviesUrl = (movieId) => {
     },
     {
       title: "Recommended Movies",
-      fetchUrl: `/movie/${movieId}/recommendations?api_key=${API_KEY}&language=en-US`,
+      fetchUrl: `/movie/${movieId}/recommendations?api_key=${API_KEY}&language=en-US&page=1`,
     },
     {
       title: "Popular Movies",
