@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "../../axios";
 import Movie from "./Movie";
 
-const Row = ({ title, fetchUrl, isLargeRow = false }) => {
+const Row = ({ title, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
-  const baseUrl = `https://image.tmdb.org/t/p/original/`;
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -12,7 +11,8 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
       setMovies(res.data.results);
     };
     fetchMovies();
-  }, [fetchUrl]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className="movies-container">
@@ -21,12 +21,14 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
         <ul className="movies">
           {movies.map((movie) => {
             return (
-              <Movie
-                key={movie.id}
-                isLargeRow
-                movieName={movie.name}
-                movieImg={`${baseUrl}${movie.poster_path}`}
-              />
+              movie.poster_path && (
+                <Movie
+                  key={movie.id}
+                  movieId={movie.id}
+                  movieName={movie.name}
+                  movieImg={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                />
+              )
             );
           })}
         </ul>

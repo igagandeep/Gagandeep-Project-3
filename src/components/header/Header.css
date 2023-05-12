@@ -14,10 +14,14 @@ nav .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 0;
 }
 
 .logo {
-  width: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100px;
+  margin-top: 5px;
   cursor: pointer;
 }
 
@@ -33,7 +37,7 @@ nav .wrapper {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-  height: 448px;
+  height: 550px;
   -o-object-fit: contain;
      object-fit: contain;
   color: #fff;
@@ -55,6 +59,7 @@ nav .wrapper {
 }
 .banner-contents .banner-description {
   width: 40%;
+  margin-top: 10px;
 }
 
 .banner-btn {

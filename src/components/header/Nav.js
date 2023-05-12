@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [isNavBlack, setIsNavBlack] = useState(false);
@@ -20,15 +21,16 @@ const Nav = () => {
   return (
     <nav className={`${isNavBlack && "nav-black"}`}>
       <div className="wrapper">
-        <img
-          className="logo"
-          src="assets/netflix.png"
-          alt="this is logo icon"
-        />
-
+        <Link to="/">
+          <img
+            className="logo"
+            src="https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"
+            alt="this is logo icon"
+          />
+        </Link>
         <img
           className="profile"
-          src="assets/avatar.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
           alt="this is profile icon"
         />
       </div>

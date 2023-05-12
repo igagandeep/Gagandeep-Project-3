@@ -1,12 +1,15 @@
 import "./App.scss";
-import Header from "./components/header/Header";
-import Main from "./components/main/Main";
+import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
+import Movie from "./pages/Movie";
 
 function App() {
   return (
     <>
-      <Header />
-      <Main />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<Movie />} />
+      </Routes>
     </>
   );
 }

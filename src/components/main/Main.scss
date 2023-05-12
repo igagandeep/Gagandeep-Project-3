@@ -23,9 +23,10 @@
 }
 .movie {
   min-width: 200px;
+  min-height: 250px;
   transition: transform 450ms;
   overflow-y: hidden;
-  margin-right: 5px;
+  margin-right: 10px;
   cursor: pointer;
   &:hover {
     transform: scale(1.08);
@@ -34,9 +35,6 @@
   img {
     object-fit: contain;
   }
-}
-.poster_large {
-  max-height: 350px;
 }
 
 @media (max-width: 992px) {

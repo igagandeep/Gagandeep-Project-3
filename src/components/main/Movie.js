@@ -1,7 +1,11 @@
-const Movie = ({ movieName, movieImg, isLargeRow }) => {
+import { Link } from "react-router-dom";
+
+const Movie = ({ movieId, movieName, movieImg }) => {
   return (
-    <li className={`movie ${isLargeRow && "poster_large"}`}>
-      <img src={movieImg} alt={movieName} />
+    <li className="movie">
+      <Link to={`/movie/${movieId}`}>
+        <img src={movieImg} alt={movieName} />
+      </Link>
     </li>
   );
 };

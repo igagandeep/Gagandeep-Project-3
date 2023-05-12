@@ -2,11 +2,11 @@ import "./Header.scss";
 import Nav from "./Nav";
 import Banner from "./Banner";
 
-const Header = () => {
+const Header = ({ movie }) => {
   return (
     <header>
       <Nav />
-      <Banner />
+      <Banner movie={movie} />
     </header>
   );
 };
