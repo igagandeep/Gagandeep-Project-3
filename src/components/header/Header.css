@@ -85,6 +85,20 @@ nav .wrapper {
   background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
 }
 
+/* styles.css */
+.react-player {
+  overflow-y: hidden;
+}
+
+.close-modal {
+  padding: 2px 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: #111;
+  color: #fff;
+  border-color: #111;
+}
+
 @media (max-width: 992px) {
   .banner-contents .banner-title {
     font-size: 36px;

@@ -8,7 +8,7 @@
 }
 .title {
   font-size: 22px;
-  margin: 20px 0 0 70px;
+  margin: 10px 0 0 70px;
   padding: 2px;
 }
 .movies {
@@ -17,6 +17,8 @@
   overflow-x: auto;
   margin-left: 70px;
   padding: 2px;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer and Edge */
 }
 .movies::-webkit-scrollbar {
   display: none;

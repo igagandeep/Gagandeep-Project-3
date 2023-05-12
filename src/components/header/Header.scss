@@ -81,6 +81,20 @@ nav .wrapper {
     #111
   );
 }
+/* styles.css */
+
+.react-player {
+  overflow-y: hidden;
+}
+
+.close-modal {
+  padding: 2px 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: #111;
+  color: #fff;
+  border-color: #111;
+}
 
 @media (max-width: 992px) {
   .banner-contents {
