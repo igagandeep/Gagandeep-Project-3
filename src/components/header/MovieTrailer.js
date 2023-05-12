@@ -37,7 +37,6 @@ const MovieTrailer = ({ movieId }) => {
       url={`https://www.youtube.com/watch?v=${trailer}`}
       controls
       width="100%"
-      height="88%"
     />
   );
 };

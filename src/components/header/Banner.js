@@ -36,13 +36,15 @@ function Banner({ movie }) {
               Play
             </button>
             <button className="banner-btn">My List</button>
+
             <ReactModal
+              className="custom-modal"
               isOpen={isModalOpen}
               onRequestClose={closeModal}
               ariaHideApp={false}
             >
               <button className="close-modal" onClick={closeModal}>
-                X
+                ❌
               </button>
               <MovieTrailer movieId={movie.id} />
             </ReactModal>
