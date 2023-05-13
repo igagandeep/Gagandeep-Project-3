@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import { BsBell } from "react-icons/bs";
 
-const Nav = () => {
+const Nav = ({ fetchMoviesData }) => {
   const [isNavBlack, setIsNavBlack] = useState(false);
 
   //this function update state by checking the scrollY position
@@ -32,11 +31,9 @@ const Nav = () => {
         </Link>
         <ul className="nav-right">
           <li>
-            <SearchBar />
+            <SearchBar fetchMoviesData={fetchMoviesData} />
           </li>
-          <li>
-            <BsBell className="bello" />
-          </li>
+
           <li>
             <img
               className="profile"

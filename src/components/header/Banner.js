@@ -20,11 +20,11 @@ function Banner({ movie }) {
   return (
     <div
       className="banner"
-      style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/original/${
-          movie.backdrop_path || movie.poster_path
-        })`,
-      }}
+      style={
+        movie.backdrop_path && {
+          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`,
+        }
+      }
     >
       <div className="wrapper">
         <div className="banner-contents">

@@ -2,10 +2,10 @@ import "./Header.scss";
 import Nav from "./Nav";
 import Banner from "./Banner";
 
-const Header = ({ movie }) => {
+const Header = ({ movie, fetchMoviesData }) => {
   return (
     <header>
-      <Nav />
+      <Nav fetchMoviesData={fetchMoviesData} />
       <Banner movie={movie} />
     </header>
   );

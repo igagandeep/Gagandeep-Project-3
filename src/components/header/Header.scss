@@ -46,6 +46,7 @@ nav .wrapper {
   border: none;
   outline: none;
   padding: 10px;
+  z-index: 9999;
   background-color: transparent;
 }
 
@@ -178,7 +179,7 @@ nav .wrapper {
     flex-direction: column;
   }
   .logo {
-    width: 100px;
+    width: 80px;
     margin-bottom: 5px;
   }
   .search-input {
