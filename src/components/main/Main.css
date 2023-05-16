@@ -116,10 +116,10 @@
     width: 100%;
   }
   .movies-results .wrapper .movie {
-    min-width: 120px;
+    width: 120px;
     height: 120px;
   }
   .no-data-found .wrapper h2 {
     font-size: 16px;
   }
-}/*# sourceMappingURL=Main.css.map */
+} /*# sourceMappingURL=Main.css.map */
