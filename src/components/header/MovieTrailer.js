@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ReactPlayer from "react-player";
-import "./Header.css";
+import ErrorComponent from "../ErrorComponent";
 
 const MovieTrailer = ({ movieId }) => {
   const [trailer, setTrailer] = useState("");
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchMovieTrailer = async () => {
@@ -25,19 +26,26 @@ const MovieTrailer = ({ movieId }) => {
           const { key } = trailerVideos[0];
           setTrailer(key);
         }
+        setError(false);
       } catch (error) {
-        console.error(error);
+        setError(true);
       }
     };
     fetchMovieTrailer();
   }, [movieId]);
   return (
-    <ReactPlayer
-      className="react-player"
-      url={`https://www.youtube.com/watch?v=${trailer}`}
-      controls
-      width="100%"
-    />
+    <>
+      {!error ? (
+        <ReactPlayer
+          className="react-player"
+          url={`https://www.youtube.com/watch?v=${trailer}`}
+          controls
+          width="100%"
+        />
+      ) : (
+        <ErrorComponent />
+      )}
+    </>
   );
 };
 

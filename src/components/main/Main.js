@@ -3,11 +3,11 @@ import MovieSearchList from "./MovieSearchList";
 import Row from "./Row";
 import { v4 } from "uuid";
 
-const Main = ({ genresList, movies, isFetched }) => {
+const Main = ({ genresList, searchedMovies }) => {
   return (
     <main>
-      {movies && movies.length > 0 ? (
-        <MovieSearchList movies={movies} />
+      {searchedMovies && searchedMovies.length > 0 ? (
+        <MovieSearchList movies={searchedMovies} />
       ) : (
         genresList.map((genre) => {
           // this will render row of list of movies of specific category

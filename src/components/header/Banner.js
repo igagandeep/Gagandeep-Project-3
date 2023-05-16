@@ -4,6 +4,7 @@ import MovieTrailer from "./MovieTrailer";
 
 function Banner({ movie }) {
   const [isModalOpen, setIsOpenModal] = useState(false);
+
   // to restrict the size of movie overview to 120 characters
   const truncate = (str, n) => {
     return str?.length > n ? str.substring(0, n - 1) + "..." : str;

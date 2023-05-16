@@ -1,15 +1,18 @@
-import axios from "axios";
+import axios from "../axios";
 import Header from "../components/header/Header";
 import Main from "../components/main/Main";
 import { Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import getGenresUrl from "../utils/similarMoviesUrl";
 import NoDataFound from "../components/main/NoDataFound";
+import ErrorComponent from "../components/ErrorComponent";
+import Footer from "../components/footer/Footer";
 
 const Movie = () => {
   const [movie, setMovie] = useState({});
-  const [movies, setMovies] = useState([]);
+  const [searchedMovies, setSearchedMovies] = useState([]);
   const [isFetched, setIsFetched] = useState(true);
+  const [error, setError] = useState(false);
   const { id } = useParams(); // getting movie_id from url when click on target movie link
   const genresList = getGenresUrl(id);
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -17,45 +20,69 @@ const Movie = () => {
   useEffect(() => {
     // Fetching movie data of specific id
     const fetchMovieData = async () => {
-      const res = await axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
-        params: {
-          api_key: API_KEY,
-          language: "en-US",
-        },
-      });
-      setMovie(res.data);
+      try {
+        const res = await axios.get(`/movie/${id}`, {
+          params: {
+            api_key: API_KEY,
+            language: "en-US",
+          },
+        });
+        setMovie(res.data);
+        setError(false);
+      } catch (error) {
+        setError(true);
+      }
     };
 
     fetchMovieData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+
   // fetching list of movies based upon search query
   const fetchMoviesData = async (userInput) => {
     if (userInput.length > 0) {
-      const res = await axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${userInput}&page=1&include_adult=false`
-      );
-      const results = res.data.results;
-      if (results.length > 0) {
-        setMovies(results);
-        setIsFetched(true);
-      } else {
-        setMovies([]);
-        setIsFetched(false);
+      try {
+        const res = await axios.get(`/search/movie`, {
+          params: {
+            api_key: API_KEY,
+            language: "en-US",
+            query: userInput,
+            page: 1,
+            include_adult: false,
+          },
+        });
+        const results = res.data.results;
+        if (results.length > 0) {
+          setSearchedMovies(results);
+          setIsFetched(true);
+        } else {
+          setSearchedMovies([]);
+          setIsFetched(false);
+        }
+        setError(false);
+      } catch (error) {
+        setError(true);
       }
     } else {
-      setMovies([]);
+      setSearchedMovies([]);
     }
   };
   return (
     <>
-      <Header movie={movie} fetchMoviesData={fetchMoviesData} />
-      {isFetched ? (
-        <Main genresList={genresList} movies={movies} isFetched={isFetched} />
+      {!error ? (
+        <>
+          <Header movie={movie} fetchMoviesData={fetchMoviesData} />
+          {isFetched ? (
+            <Main genresList={genresList} searchedMovies={searchedMovies} />
+          ) : (
+            <NoDataFound />
+          )}
+          <Outlet />
+          <Footer />
+        </>
       ) : (
-        <NoDataFound />
+        <ErrorComponent />
       )}
-      <Outlet />
     </>
   );
 };

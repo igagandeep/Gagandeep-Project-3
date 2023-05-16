@@ -1,16 +1,18 @@
 import axios from "../axios";
+import { useState, useEffect } from "react";
 import Header from "../components/header/Header";
 import Main from "../components/main/Main";
-import { useState, useEffect } from "react";
 import getGenresUrl from "../utils/allMoviesUrl";
 import NoDataFound from "../components/main/NoDataFound";
+import ErrorComponent from "../components/ErrorComponent";
+import Footer from "../components/footer/Footer";
 
 const Home = () => {
-  const [movie, setMovie] = useState({});
-  const [movies, setMovies] = useState([]);
-  const [isFetched, setIsFetched] = useState(true);
-  const genresList = getGenresUrl();
-
+  const [randomMovie, setRandomMovie] = useState({}); //to store random movie on banner
+  const [searchedMovies, setSearchedMovies] = useState([]); // to store list of movies when search title
+  const [isFetched, setIsFetched] = useState(true); // checking if any title matches with query
+  const genresList = getGenresUrl(); // to get list of genres
+  const [error, setError] = useState(false);
   useEffect(() => {
     fetchMovieData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -18,40 +20,63 @@ const Home = () => {
 
   //randomly fetching movie instance from popular movies api and updating state
   const fetchMovieData = async () => {
-    const request = await axios.get(genresList[0].fetchUrl);
-    setMovie(
-      request.data.results[
-        Math.floor(Math.random() * request.data.results.length - 1)
-      ]
-    );
+    try {
+      const res = await axios.get(genresList[0].fetchUrl);
+      const movieObj =
+        res.data.results[
+          Math.floor(Math.random() * res.data.results.length - 1)
+        ];
+      setRandomMovie(movieObj);
+      setError(false);
+    } catch (error) {
+      setError(true);
+    }
   };
 
   // fetching list of movies based upon search query
   const fetchMoviesData = async (userInput) => {
     if (userInput.length > 0) {
-      const res = await axios.get(
-        `/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${userInput}&page=1&include_adult=false`
-      );
-      const results = res.data.results;
-      if (results.length > 0) {
-        setMovies(results);
-        setIsFetched(true);
-      } else {
-        setMovies([]);
-        setIsFetched(false);
+      try {
+        const res = await axios.get(`/search/movie`, {
+          params: {
+            api_key: process.env.REACT_APP_API_KEY,
+            language: "en-US",
+            query: userInput,
+            page: 1,
+            include_adult: false,
+          },
+        });
+        const results = res.data.results;
+        if (results.length > 0) {
+          setSearchedMovies(results);
+          setIsFetched(true);
+        } else {
+          setSearchedMovies([]);
+          setIsFetched(false);
+        }
+        setError(false);
+      } catch (error) {
+        setError(true);
       }
     } else {
-      setMovies([]);
+      setSearchedMovies([]);
     }
   };
 
   return (
     <>
-      <Header movie={movie} fetchMoviesData={fetchMoviesData} />
-      {isFetched ? (
-        <Main genresList={genresList} movies={movies} isFetched={isFetched} />
+      {!error ? (
+        <>
+          <Header movie={randomMovie} fetchMoviesData={fetchMoviesData} />
+          {isFetched ? (
+            <Main genresList={genresList} searchedMovies={searchedMovies} />
+          ) : (
+            <NoDataFound />
+          )}
+          <Footer />
+        </>
       ) : (
-        <NoDataFound />
+        <ErrorComponent />
       )}
     </>
   );

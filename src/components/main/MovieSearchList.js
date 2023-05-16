@@ -13,7 +13,7 @@ const MovieSearchList = ({ movies }) => {
                   key={movie.id}
                   movieId={movie.id}
                   movieName={movie.title}
-                  movieImg={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  movieImg={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 />
               )
             );
