@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import axios from "../../axios";
+import axios from "../../utils/axios";
 import Movie from "./Movie";
-import ErrorComponent from "../ErrorComponent";
+import ErrorComponent from "../error/ErrorComponent";
 
 const Row = ({ title, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
@@ -35,7 +35,7 @@ const Row = ({ title, fetchUrl }) => {
                       key={movie.id}
                       movieId={movie.id}
                       movieName={movie.name}
-                      movieImg={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                      movieImg={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     />
                   )
                 );

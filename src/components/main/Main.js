@@ -1,4 +1,3 @@
-import "./Main.scss";
 import MovieSearchList from "./MovieSearchList";
 import Row from "./Row";
 import { v4 } from "uuid";

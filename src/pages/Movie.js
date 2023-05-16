@@ -1,11 +1,11 @@
-import axios from "../axios";
+import axios from "../utils/axios";
 import Header from "../components/header/Header";
 import Main from "../components/main/Main";
 import { Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import getGenresUrl from "../utils/similarMoviesUrl";
 import NoDataFound from "../components/main/NoDataFound";
-import ErrorComponent from "../components/ErrorComponent";
+import ErrorComponent from "../components/error/ErrorComponent";
 import Footer from "../components/footer/Footer";
 
 const Movie = () => {

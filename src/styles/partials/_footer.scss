@@ -1,0 +1,23 @@
+footer {
+  margin-top: 50px;
+  background-color: #000;
+}
+footer .wrapper {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+
+  p {
+    color: grey;
+    font-size: 18px;
+    overflow-y: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  footer .wrapper {
+    p {
+      font-size: 14px;
+    }
+  }
+}

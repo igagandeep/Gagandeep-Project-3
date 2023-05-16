@@ -1,1 +1,6 @@
-@use "../src/partials/global";
+@use "./styles/Normalize.scss";
+@use "./styles/partials/global";
+@use "./styles/partials/header";
+@use "./styles/partials/error";
+@use "./styles/partials/main";
+@use "./styles/partials/footer";

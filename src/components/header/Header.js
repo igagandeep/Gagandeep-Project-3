@@ -1,4 +1,3 @@
-import "./Header.scss";
 import Nav from "./Nav";
 import Banner from "./Banner";
 

@@ -1,9 +1,11 @@
+@use "./variables" as *;
+
 * {
   margin: 0;
   overflow-x: hidden;
 }
 html {
-  background-color: #111;
+  background-color: $primary;
 }
 ul {
   list-style-type: none;

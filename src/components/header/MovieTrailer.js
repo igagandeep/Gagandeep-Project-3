@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ReactPlayer from "react-player";
-import ErrorComponent from "../ErrorComponent";
+import ErrorComponent from "../error/ErrorComponent";
 
 const MovieTrailer = ({ movieId }) => {
   const [trailer, setTrailer] = useState("");

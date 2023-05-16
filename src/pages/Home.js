@@ -1,10 +1,10 @@
-import axios from "../axios";
+import axios from "../utils/axios";
 import { useState, useEffect } from "react";
 import Header from "../components/header/Header";
 import Main from "../components/main/Main";
 import getGenresUrl from "../utils/allMoviesUrl";
 import NoDataFound from "../components/main/NoDataFound";
-import ErrorComponent from "../components/ErrorComponent";
+import ErrorComponent from "../components/error/ErrorComponent";
 import Footer from "../components/footer/Footer";
 
 const Home = () => {
