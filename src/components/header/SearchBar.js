@@ -22,7 +22,7 @@ const SearchBar = ({ fetchMoviesData }) => {
         value={userInput}
         onChange={handleChange}
       />
-      <button className="search-icon">
+      <button type="button" className="search-icon">
         <FaSearch />
       </button>
     </div>
