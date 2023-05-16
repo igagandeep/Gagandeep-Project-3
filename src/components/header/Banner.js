@@ -22,7 +22,7 @@ function Banner({ movie }) {
       className="banner"
       style={
         movie.backdrop_path && {
-          backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
         }
       }
     >

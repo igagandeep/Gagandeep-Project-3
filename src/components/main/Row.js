@@ -26,7 +26,7 @@ const Row = ({ title, fetchUrl }) => {
                   key={movie.id}
                   movieId={movie.id}
                   movieName={movie.name}
-                  movieImg={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  movieImg={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 />
               )
             );
