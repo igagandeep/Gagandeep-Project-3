@@ -4,7 +4,6 @@ import Main from "../components/main/Main";
 import { Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import getGenresUrl from "../utils/similarMoviesUrl";
-import NoDataFound from "../components/main/NoDataFound";
 import ErrorComponent from "../components/error/ErrorComponent";
 import Footer from "../components/footer/Footer";
 
@@ -15,6 +14,7 @@ const Movie = () => {
   const [error, setError] = useState(false);
   const { id } = useParams(); // getting movie_id from url when click on target movie link
   const genresList = getGenresUrl(id);
+  const [userInput, setUserInput] = useState("");
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
@@ -40,6 +40,7 @@ const Movie = () => {
 
   // fetching list of movies based upon search query
   const fetchMoviesData = async (userInput) => {
+    setUserInput(userInput);
     if (userInput.length > 0) {
       try {
         const res = await axios.get(`/search/movie`, {
@@ -71,12 +72,18 @@ const Movie = () => {
     <>
       {!error ? (
         <>
-          <Header movie={movie} fetchMoviesData={fetchMoviesData} />
-          {isFetched ? (
-            <Main genresList={genresList} searchedMovies={searchedMovies} />
-          ) : (
-            <NoDataFound />
-          )}
+          <Header
+            movie={movie}
+            fetchMoviesData={fetchMoviesData}
+            userInput={userInput}
+            isFetched={isFetched}
+          />
+          <Main
+            genresList={genresList}
+            searchedMovies={searchedMovies}
+            isFetched={isFetched}
+            userInput={userInput}
+          />
           <Outlet />
           <Footer />
         </>

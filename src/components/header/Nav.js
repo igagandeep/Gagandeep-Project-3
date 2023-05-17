@@ -26,7 +26,7 @@ const Nav = ({ fetchMoviesData }) => {
           <img
             className="logo"
             src="https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"
-            alt="this is logo icon"
+            alt="this is the logo icon"
           />
         </Link>
         <ul className="nav-right">
@@ -38,7 +38,7 @@ const Nav = ({ fetchMoviesData }) => {
             <img
               className="profile"
               src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-              alt="this is profile icon"
+              alt="this is the profile icon"
             />
           </li>
         </ul>

@@ -44,6 +44,9 @@
   }
 }
 
+.movies-results {
+  margin-top: 120px;
+}
 .movies-results .wrapper {
   display: flex;
   .movies {
@@ -57,7 +60,6 @@
   .movie {
     min-width: 200px;
     height: 300px;
-
     transition: transform 450ms;
     overflow-y: hidden;
     margin: 20px 10px;
@@ -72,13 +74,22 @@
     }
   }
 }
-
+.no-data-found {
+  margin-top: 120px;
+  height: 100vh;
+}
 .no-data-found .wrapper {
   display: flex;
+  flex-direction: column;
   color: $secondary;
   opacity: 0.7;
   margin-top: 30px;
+  align-items: center;
   justify-content: center;
+  line-height: 1.3;
+  .suggestions {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -102,6 +113,15 @@
       img {
         width: 100%;
       }
+    }
+  }
+  .no-data-found .wrapper {
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.3;
+    h2 {
+      overflow-y: hidden;
     }
   }
 }
@@ -131,6 +151,9 @@
   .no-data-found .wrapper {
     h2 {
       font-size: 16px;
+    }
+    .suggestions {
+      font-size: 14px;
     }
   }
 }

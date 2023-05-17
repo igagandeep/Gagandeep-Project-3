@@ -1,11 +1,11 @@
 import Nav from "./Nav";
 import Banner from "./Banner";
 
-const Header = ({ movie, fetchMoviesData }) => {
+const Header = ({ movie, fetchMoviesData, userInput, isFetched }) => {
   return (
     <header>
       <Nav fetchMoviesData={fetchMoviesData} />
-      <Banner movie={movie} />
+      {!userInput && <Banner movie={movie} />}
     </header>
   );
 };

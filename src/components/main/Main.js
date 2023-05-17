@@ -1,12 +1,19 @@
 import MovieSearchList from "./MovieSearchList";
 import Row from "./Row";
 import { v4 } from "uuid";
+import NoDataFound from "./NoDataFound";
 
-const Main = ({ genresList, searchedMovies }) => {
+const Main = ({ genresList, searchedMovies, isFetched, userInput }) => {
   return (
-    <main>
-      {searchedMovies && searchedMovies.length > 0 ? (
-        <MovieSearchList movies={searchedMovies} />
+    <main className="main">
+      {userInput ? (
+        <>
+          {isFetched ? (
+            <MovieSearchList movies={searchedMovies} />
+          ) : (
+            <NoDataFound userInput={userInput} />
+          )}
+        </>
       ) : (
         genresList.map((genre) => {
           // this will render row of list of movies of specific category
