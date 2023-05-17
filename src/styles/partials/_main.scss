@@ -32,6 +32,7 @@
   height: 300px;
   transition: transform 450ms;
   overflow-y: hidden;
+  will-change: transform;
   margin-right: 10px;
   cursor: pointer;
   &:hover {
