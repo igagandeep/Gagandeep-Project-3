@@ -1,10 +1,16 @@
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import "./App.scss";
+import Home from "./pages/Home";
+import Movie from "./pages/Movie";
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<Movie />} />
+      </Routes>
+    </>
   );
 }
 

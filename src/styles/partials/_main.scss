@@ -1,0 +1,150 @@
+@use "./variables" as *;
+
+//  **********************************😀😀 MOVIES STYLES 😀😀***************************
+
+.movies-container {
+  color: $secondary;
+}
+.movies-wrapper {
+  max-width: 1500px;
+  min-width: 1500px;
+  margin: 0 auto;
+}
+.title {
+  font-size: $title-font-size;
+  margin: 10px 0 0 70px;
+  padding: 2px;
+}
+.movies {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  margin-left: 70px;
+  padding: 2px;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer and Edge */
+}
+.movies::-webkit-scrollbar {
+  display: none;
+}
+.movie {
+  min-width: 200px;
+  height: 300px;
+  overflow-y: hidden;
+  margin-right: 10px;
+  cursor: pointer;
+
+  img {
+    height: 100%;
+    transition: transform 450ms;
+    &:hover {
+      transform: scale(1.08);
+      opacity: 1;
+    }
+  }
+}
+
+.movies-results {
+  margin-top: 120px;
+}
+.movies-results .wrapper {
+  display: flex;
+  .movies {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    overflow-x: hidden;
+    margin-left: 0px;
+  }
+  .movie {
+    min-width: 200px;
+    transition: transform 450ms;
+    overflow-y: hidden;
+    margin: 20px 10px;
+
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.08);
+      opacity: 1;
+    }
+    img {
+      height: 100%;
+    }
+  }
+}
+.no-data-found {
+  margin-top: 120px;
+  height: 100vh;
+}
+.no-data-found .wrapper {
+  display: flex;
+  flex-direction: column;
+  color: $secondary;
+  opacity: 0.7;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.3;
+  .suggestions {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .title {
+    margin: 20px 0 0 30px;
+  }
+  .movies {
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .movies-results .wrapper {
+    .movies {
+      width: 100%;
+      justify-content: center;
+    }
+    .movie {
+      min-width: 150px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .no-data-found .wrapper {
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.3;
+    h2 {
+      overflow-y: hidden;
+    }
+  }
+}
+@media (max-width: 480px) {
+  .title {
+    font-size: 16px;
+    margin: 0px 0 0 15px;
+  }
+  .movies {
+    margin-left: 15px;
+  }
+  .movie {
+    min-width: 150px;
+    height: 200px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .no-data-found .wrapper {
+    h2 {
+      font-size: 16px;
+    }
+    .suggestions {
+      font-size: 14px;
+    }
+  }
+}
