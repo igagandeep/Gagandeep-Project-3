@@ -3,7 +3,7 @@
 nav {
   position: fixed;
   width: 100%;
-  z-index: 9999;
+  z-index: 99;
   transition-timing-function: ease-in;
   transition: all 0.5s;
 }
@@ -46,7 +46,6 @@ nav .wrapper {
   border: none;
   outline: none;
   padding: 10px;
-  z-index: 9999;
   background-color: transparent;
 }
 
@@ -83,12 +82,22 @@ nav .wrapper {
   object-fit: contain;
   color: $secondary;
 }
+.black-background-effect {
+  position: absolute;
+  background-color: $primary;
+  height: 100%;
+  width: 100%;
+  opacity: 0.3;
+}
 .banner .wrapper {
   flex-grow: 5;
 }
+
 .banner-contents {
+  position: relative;
   height: 100%;
   display: flex;
+  // z-index: 9;
   line-height: 1.7;
   flex-direction: column;
   justify-content: flex-end;
@@ -98,8 +107,10 @@ nav .wrapper {
   .banner-description {
     width: 40%;
     margin-top: 10px;
+    font-weight: bolder;
   }
 }
+
 .banner-btn {
   cursor: pointer;
   color: $secondary;

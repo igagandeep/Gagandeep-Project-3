@@ -9,7 +9,6 @@ import Footer from "../components/footer/Footer";
 const Home = () => {
   const [randomMovie, setRandomMovie] = useState({}); //to store random movie on banner
   const [searchedMovies, setSearchedMovies] = useState([]); // to store list of movies when search title
-  const [isFetched, setIsFetched] = useState(false); // checking if any title matches with query
   const genresList = getGenresUrl(); // to get list of genres
   const [error, setError] = useState(false);
   const [userInput, setUserInput] = useState("");
@@ -50,10 +49,8 @@ const Home = () => {
         const results = res.data.results;
         if (results.length > 0) {
           setSearchedMovies(results);
-          setIsFetched(true);
         } else {
           setSearchedMovies([]);
-          setIsFetched(false);
         }
         setError(false);
       } catch (error) {
@@ -61,6 +58,7 @@ const Home = () => {
       }
     } else {
       setSearchedMovies([]);
+      setUserInput("");
     }
   };
 
@@ -72,12 +70,10 @@ const Home = () => {
             movie={randomMovie}
             fetchMoviesData={fetchMoviesData}
             userInput={userInput}
-            isFetched={isFetched}
           />
           <Main
             genresList={genresList}
             searchedMovies={searchedMovies}
-            isFetched={isFetched}
             userInput={userInput}
           />
           <Footer />

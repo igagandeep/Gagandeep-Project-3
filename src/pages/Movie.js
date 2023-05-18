@@ -10,7 +10,6 @@ import Footer from "../components/footer/Footer";
 const Movie = () => {
   const [movie, setMovie] = useState({});
   const [searchedMovies, setSearchedMovies] = useState([]);
-  const [isFetched, setIsFetched] = useState(true);
   const [error, setError] = useState(false);
   const { id } = useParams(); // getting movie_id from url when click on target movie link
   const genresList = getGenresUrl(id);
@@ -35,19 +34,20 @@ const Movie = () => {
     };
 
     fetchMovieData();
+    setUserInput("");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   // fetching list of movies based upon search query
-  const fetchMoviesData = async (userInput) => {
-    setUserInput(userInput);
-    if (userInput.length > 0) {
+  const fetchMoviesData = async (searchedText) => {
+    setUserInput(searchedText);
+    if (searchedText.length > 0) {
       try {
         const res = await axios.get(`/search/movie`, {
           params: {
             api_key: API_KEY,
             language: "en-US",
-            query: userInput,
+            query: searchedText,
             page: 1,
             include_adult: false,
           },
@@ -55,10 +55,8 @@ const Movie = () => {
         const results = res.data.results;
         if (results.length > 0) {
           setSearchedMovies(results);
-          setIsFetched(true);
         } else {
           setSearchedMovies([]);
-          setIsFetched(false);
         }
         setError(false);
       } catch (error) {
@@ -66,6 +64,7 @@ const Movie = () => {
       }
     } else {
       setSearchedMovies([]);
+      setUserInput("");
     }
   };
   return (
@@ -76,12 +75,10 @@ const Movie = () => {
             movie={movie}
             fetchMoviesData={fetchMoviesData}
             userInput={userInput}
-            isFetched={isFetched}
           />
           <Main
             genresList={genresList}
             searchedMovies={searchedMovies}
-            isFetched={isFetched}
             userInput={userInput}
           />
           <Outlet />

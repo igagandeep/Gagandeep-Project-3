@@ -29,6 +29,7 @@ function Banner({ movie }) {
         }
       }
     >
+      <div className="black-background-effect"></div>
       <div className="wrapper">
         <div className="banner-contents">
           <h1 className="banner-title">
