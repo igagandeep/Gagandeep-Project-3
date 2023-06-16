@@ -1,218 +1,222 @@
 @use "./variables" as *;
 //  ************************************😀😀 NAVBAR 😀😀*****************************
 nav {
-  position: fixed;
-  width: 100%;
-  z-index: 99;
-  transition-timing-function: ease-in;
-  transition: all 0.5s;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
 }
 .nav-black {
-  background-color: $primary;
+    background-color: $primary;
 }
 nav .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
 }
 .logo {
-  object-fit: contain;
-  width: 100px;
-  margin-top: 5px;
-  flex-grow: 1;
-  cursor: pointer;
+    object-fit: contain;
+    width: 100px;
+    margin-top: 5px;
+    flex-grow: 1;
+    cursor: pointer;
 }
 .nav-right {
-  flex-grow: 2;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .search-wrapper {
-  display: flex;
-  color: $secondary;
-  align-items: flex-start;
-  opacity: 0.7;
-  margin-right: 10px;
-  border: 1px solid $secondary;
-  position: relative;
-  background-color: $primary;
+    display: flex;
+    color: $secondary;
+    align-items: flex-start;
+    opacity: 0.7;
+    margin-right: 10px;
+    border: 1px solid $secondary;
+    position: relative;
+    background-color: $primary;
 }
 
 .search-input {
-  color: $secondary;
-  width: 250px;
-  border: none;
-  outline: none;
-  padding: 10px;
-  background-color: transparent;
+    color: $secondary;
+    width: 250px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    background-color: transparent;
 }
 
 .search-icon {
-  font-size: 20px;
-  height: 100%;
-  background: none;
-  border: none;
-  outline: none;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  color: #fff;
-  transform: translateY(-50%);
-  pointer-events: none;
+    font-size: 20px;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: #fff;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 .profile {
-  width: 40px;
-  height: 40px;
-  margin-top: 3px;
-  cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-top: 3px;
+    cursor: pointer;
 }
 
 //  ************************************😀😀 BANNER 😀😀*****************************
 
 .banner {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  height: 550px;
-  object-fit: contain;
-  color: $secondary;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 550px;
+    object-fit: contain;
+    color: $secondary;
 }
 .black-background-effect {
-  position: absolute;
-  background-color: $primary;
-  height: 100%;
-  width: 100%;
-  opacity: 0.3;
+    position: absolute;
+    background-color: $primary;
+    height: 100%;
+    width: 100%;
+    opacity: 0.3;
 }
 .banner .wrapper {
-  flex-grow: 5;
+    flex-grow: 5;
 }
 
 .banner-contents {
-  position: relative;
-  height: 100%;
-  display: flex;
-  text-shadow: 1px 1px 2px $primary, 0 0 5px, 0 0 5px $primary;
-  line-height: 1.7;
-  flex-direction: column;
-  justify-content: flex-end;
-  .banner-title {
-    font-size: 56px;
-  }
-  .banner-description {
-    width: 40%;
-    margin-top: 10px;
-    font-weight: bolder;
-  }
+    position: relative;
+    height: 100%;
+    display: flex;
+    text-shadow: 1px 1px 2px $primary, 0 0 5px, 0 0 5px $primary;
+    line-height: 1.7;
+    flex-direction: column;
+    justify-content: flex-end;
+    .banner-title {
+        font-size: 56px;
+    }
+    .banner-description {
+        width: 40%;
+        margin-top: 10px;
+        font-weight: bolder;
+    }
 }
 
 .banner-btn {
-  cursor: pointer;
-  color: $secondary;
-  outline: none;
-  border: none;
-  border-radius: 0.2vw;
-  padding: 12px 48px;
-  margin-right: 16px;
-  font-weight: 700;
-  background-color: rgba(51, 51, 51, 0.5);
-  &:hover {
-    color: $primary;
-    background-color: #e6e6e6;
-    transition: all 0.2s;
-  }
+    cursor: pointer;
+    color: $secondary;
+    outline: none;
+    border: none;
+    border-radius: 0.2vw;
+    padding: 12px 48px;
+    margin-right: 16px;
+    font-weight: 700;
+    background-color: rgba(51, 51, 51, 0.5);
+    &:hover,
+    &:focus {
+        color: $primary;
+        background-color: #e6e6e6;
+        transition: all 0.2s;
+    }
+    &:focus-visible {
+        outline: 2px solid #000;
+    }
 }
 .banner-fadeEffect {
-  flex-grow: 0;
-  height: 118.4px;
-  background-image: linear-gradient(
-    180deg,
-    transparent,
-    rgba(37, 37, 37, 0.61),
-    $primary
-  );
+    flex-grow: 0;
+    height: 118.4px;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(37, 37, 37, 0.61),
+        $primary
+    );
 }
 
 .custom-modal {
-  display: flex;
-  width: 65%;
-  padding: 10px;
-  margin: 0 auto;
-  align-items: center;
-  margin-top: 120px;
-  flex-direction: column;
-  height: 400px;
-  background-color: $primary;
+    display: flex;
+    width: 65%;
+    padding: 10px;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 120px;
+    flex-direction: column;
+    height: 400px;
+    background-color: $primary;
 }
 .close-modal {
-  width: 50px;
-  padding: 2px 5px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  background-color: $secondary;
-  color: $primary;
-  border-color: $primary;
+    width: 50px;
+    padding: 2px 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: $secondary;
+    color: $primary;
+    border-color: $primary;
 }
 
 //  ************************************😀😀 MEDIA QUERIES 😀😀*****************************
 
 @media (max-width: 992px) {
-  .banner-contents {
-    .banner-title {
-      font-size: 36px;
+    .banner-contents {
+        .banner-title {
+            font-size: 36px;
+        }
+        .banner-description {
+            width: 70%;
+        }
     }
-    .banner-description {
-      width: 70%;
-    }
-  }
 }
 @media (max-width: 768px) {
-  .logo {
-    width: 80px;
-    padding: 0 5px;
-  }
-  .search-input {
-    width: 250px;
-  }
+    .logo {
+        width: 80px;
+        padding: 0 5px;
+    }
+    .search-input {
+        width: 250px;
+    }
 }
 @media (max-width: 480px) {
-  nav .wrapper {
-    flex-direction: column;
-  }
-  .logo {
-    width: 80px;
-    margin-bottom: 5px;
-  }
-  .search-input {
-    width: 90%;
-    border: none;
-    outline: none;
-    padding: 7px;
-    background-color: transparent;
-  }
-  .profile {
-    width: 30px;
-    height: 30px;
-  }
+    nav .wrapper {
+        flex-direction: column;
+    }
+    .logo {
+        width: 80px;
+        margin-bottom: 5px;
+    }
+    .search-input {
+        width: 90%;
+        border: none;
+        outline: none;
+        padding: 7px;
+        background-color: transparent;
+    }
+    .profile {
+        width: 30px;
+        height: 30px;
+    }
 
-  .banner-contents {
-    .banner-title {
-      font-size: 24px;
+    .banner-contents {
+        .banner-title {
+            font-size: 24px;
+        }
+        .banner-description {
+            width: 100%;
+            font-size: 16px;
+        }
     }
-    .banner-description {
-      width: 100%;
-      font-size: 16px;
+    .banner-btn {
+        padding: 8px 32px;
     }
-  }
-  .banner-btn {
-    padding: 8px 32px;
-  }
-  .react-player {
-    height: auto;
-  }
+    .react-player {
+        height: auto;
+    }
 }
