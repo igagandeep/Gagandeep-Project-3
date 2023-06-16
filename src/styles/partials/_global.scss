@@ -1,29 +1,29 @@
 @use "./variables" as *;
 
 * {
-  margin: 0;
-  overflow-x: hidden;
+    margin: 0;
+    overflow-x: hidden;
 }
 html {
-  background-color: $primary;
+    background-color: $primary;
 }
 ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 h1,
 h2 {
-  margin: 0px;
+    margin: 0px;
 }
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
 .wrapper {
-  max-width: 1200px;
-  width: 90%;
-  margin: 0 auto;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
 }
