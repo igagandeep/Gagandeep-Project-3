@@ -8,9 +8,11 @@ const MovieProvider = ({ children }) => {
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Fetch a random movie for the banner (Home page)
   const fetchRandomMovie = async () => {
+    setLoading(true);
     try {
       const genresList = getGenresUrl();
       const res = await axios.get(genresList[0].fetchUrl);
@@ -22,11 +24,14 @@ const MovieProvider = ({ children }) => {
       setError(false);
     } catch (error) {
       setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 
   // Fetch a specific movie by ID (Movie page)
   const fetchMovieById = async (id) => {
+    setLoading(true);
     const API_KEY = process.env.REACT_APP_API_KEY;
     try {
       const res = await axios.get(`/movie/${id}`, {
@@ -39,6 +44,8 @@ const MovieProvider = ({ children }) => {
       setError(false);
     } catch (error) {
       setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -85,6 +92,7 @@ const MovieProvider = ({ children }) => {
     searchedMovies,
     userInput,
     error,
+    loading,
     setUserInput,
     fetchRandomMovie,
     fetchMovieById,
